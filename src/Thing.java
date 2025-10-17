@@ -16,7 +16,7 @@ public class Thing {
         return this.weight;
     }
 
-    public String toString() {
-        return this.name + " (" + this.weight + " kg)";
+    public Thing getThing() {
+        return this;
     }
 }
