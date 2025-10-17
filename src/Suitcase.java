@@ -24,6 +24,13 @@ public class Suitcase {
     }
 
     public String toString() {
-        return this.things.size() + " objects (" + this.getWeight() + " kg)";
+        switch (this.things.size()) {
+            case 0:
+                return "empty (" + this.getWeight() + " kg)";
+            case 1:
+                return "1 thing (" + this.getWeight() + " kg)";
+            default:
+                return this.things.size() + " things (" + this.getWeight() + " kg)";
+        }
     }
 }
