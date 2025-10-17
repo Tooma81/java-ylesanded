@@ -15,22 +15,25 @@ public class Suitcase {
         }
     }
 
+    public void printThings() {
+        for (Thing thing : this.things) {
+            System.out.println(thing.getName() + " (" + thing.getWeight() + " kg)");
+        }
+    }
+
     public int getWeight() {
         int weight = 0;
-        for (int i = 0; i < this.things.size(); i++) {
-            weight += this.things.get(i).getWeight();
+        for (Thing thing : this.things) {
+            weight += thing.getWeight();
         }
         return weight;
     }
 
     public String toString() {
-        switch (this.things.size()) {
-            case 0:
-                return "empty (" + this.getWeight() + " kg)";
-            case 1:
-                return "1 thing (" + this.getWeight() + " kg)";
-            default:
-                return this.things.size() + " things (" + this.getWeight() + " kg)";
-        }
+        return switch (this.things.size()) {
+            case 0 -> "empty (" + this.getWeight() + " kg)";
+            case 1 -> "1 thing (" + this.getWeight() + " kg)";
+            default -> this.things.size() + " things (" + this.getWeight() + " kg)";
+        };
     }
 }
