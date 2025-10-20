@@ -8,9 +8,9 @@ public class Ylesanne4Week7 {
         suitcase.addThing(book);
         suitcase.addThing(mobile);
         suitcase.addThing(brick);
+        System.out.println(suitcase);
 
-        System.out.println("Your suitcase contains the following things:");
-        suitcase.printThings();
-        System.out.println("Total weight: " + suitcase.getWeight() + " kg");
+        Thing heaviest = suitcase.heaviestThing();
+        System.out.println("The heaviest thing: " + heaviest);
     }
 }

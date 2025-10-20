@@ -1,9 +1,13 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Arrays;
 
 public class Suitcase {
 
     private int weightLimit;
-    ArrayList<Thing> things = new ArrayList<Thing>();
+    Thing[] things = {};
 
     public Suitcase(int weightLimit) {
         this.weightLimit = weightLimit;
@@ -11,7 +15,8 @@ public class Suitcase {
 
     public void addThing(Thing thing) {
         if (this.getWeight() + thing.getWeight() <= this.weightLimit) {
-            this.things.add(thing);
+            this.things = Arrays.copyOf(things, things.length + 1);
+            this.things[this.things.length - 1] = thing;
         }
     }
 
@@ -29,11 +34,24 @@ public class Suitcase {
         return weight;
     }
 
+    public Thing heaviestThing() {
+        int[] weights = {};
+        for (Thing thing : this.things) {
+            weights = Arrays.copyOf(weights, weights.length + 1);
+            weights[weights.length - 1] = thing.getWeight();
+        }
+        int maxAt = 0;
+        for (int i = 0; i < weights.length; i++) {
+            maxAt = weights[i] > weights[maxAt] ? i : maxAt;
+        }
+        return things[maxAt];
+    }
+
     public String toString() {
-        return switch (this.things.size()) {
+        return switch (this.things.length) {
             case 0 -> "empty (" + this.getWeight() + " kg)";
             case 1 -> "1 thing (" + this.getWeight() + " kg)";
-            default -> this.things.size() + " things (" + this.getWeight() + " kg)";
+            default -> this.things.length + " things (" + this.getWeight() + " kg)";
         };
     }
 }
