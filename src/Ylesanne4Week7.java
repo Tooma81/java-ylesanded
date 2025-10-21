@@ -15,6 +15,7 @@ public class Ylesanne4Week7 {
         container.addSuitcase(tomsCase);
         container.addSuitcase(georgesCase);
 
-        System.out.println(container);
+        System.out.println("There are the following things in the container suitcases:");
+        container.printThings();
     }
 }

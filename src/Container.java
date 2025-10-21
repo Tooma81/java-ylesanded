@@ -24,6 +24,12 @@ public class Container {
         return weight;
     }
 
+    public void printThings() {
+        for (Suitcase suitcase : this.suitcases) {
+            suitcase.printThings();
+        }
+    }
+
     public String toString() {
         return this.suitcases.length + " suitcases (" + this.getWeight() + " kg)";
     }
