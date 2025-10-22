@@ -15,4 +15,8 @@ public class Dictionary {
     public String translate(String finnish) {
         return this.translation.get(finnish);
     }
+
+    public int amountOfWords() {
+        return this.translation.size();
+    }
 }
