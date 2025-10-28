@@ -1,15 +1,12 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Ylesanne7Week7 {
     public static void main(String[] Dictionary) {
-        Dictionary dictionary = new Dictionary();
-        dictionary.add("apina", "monkey");
-        dictionary.add("banaani", "banana");
-        dictionary.add("cembalo", "harpsichord");
+        Scanner reader = new Scanner(System.in);
+        Dictionary dict = new Dictionary();
 
-        ArrayList<String> translations = dictionary.translationList();
-        for(String translation: translations) {
-            System.out.println(translation);
-        }
+        TextUserInterface ui = new TextUserInterface(reader, dict);
+        ui.start();
     }
 }
