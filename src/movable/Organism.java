@@ -1,8 +1,8 @@
 package movable;
 
 public class Organism {
-    private int x;
-    private int y;
+    public int x;
+    public int y;
 
     public Organism(int x, int y) {
         this.x = x;
